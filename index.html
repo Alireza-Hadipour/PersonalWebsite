@@ -18,15 +18,48 @@
   <link rel="stylesheet" href="./assets/css/style.css">
 
   <style>
+    /* ---- Accent color override: purple instead of the template's default gold ----
+       This overrides the CSS custom properties from style.css, so every element that
+       already uses var(--orange-yellow-crayola) / var(--vegas-gold) (nav, headings,
+       gradients, hovers, etc.) updates automatically. */
+    :root {
+      --orange-yellow-crayola: #b96cf4 !important;
+      --vegas-gold: #9a4fe0 !important;
+    }
+
+    /* Catch the small decorative line under each section heading (About/Resume/Projects),
+       in case it's drawn with a literal color rather than the variables above. */
+    .article-title::before,
+    .article-title::after,
+    article > header::before,
+    article > header::after {
+      background: #b96cf4 !important;
+      border-color: #b96cf4 !important;
+    }
+
     /* Keep More About Me titles aligned with the card content after removing avatars. */
     .testimonials-item-title {
       margin-left: 0 !important;
     }
 
+    /* Tighten the gap between "More About Me" and the "(Scroll horizontally)" hint.
+       Adjacent vertical margins collapse to the larger value, so both the heading's
+       bottom margin and the paragraph's top margin need to be reduced. */
+    .testimonials-title {
+      margin-bottom: 6px !important;
+    }
+
+    .testimonials-title + p {
+      margin-top: 0 !important;
+      margin-bottom: 12px !important;
+      font-size: 14px;
+      color: var(--light-gray-70, var(--light-gray));
+    }
+
     /* Use the same visual footprint as the previous SVG service icons. */
     .service-icon-box ion-icon {
       font-size: 40px;
-      color: #FCCF69;
+      color: #b96cf4;
     }
 
     .skill .title-wrapper {
@@ -48,17 +81,56 @@
 
     .skill .title-wrapper .icon-box ion-icon {
       font-size: 24px;
-      color: #FCCF69;
+      color: #b96cf4;
+    }
+
+    /* CV "icon" fallback (letters instead of a document icon) */
+    .cv-icon-text {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      line-height: 1;
+    }
+
+    /* Certifications: put the icon and heading on the same row like the other
+       resume sections. Margin now lives on the wrapper, not on the heading itself,
+       so it doesn't throw off the flex row's vertical centering. */
+    .certifications > .title-wrapper {
+      margin-bottom: 20px;
+    }
+
+    .certifications-title {
+      margin-bottom: 0 !important;
+    }
+
+    /* Summary section YouTube video embed */
+    .about-video-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 640px;
+      aspect-ratio: 16 / 9;
+      margin-top: 20px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--eerie-black-2);
+      box-shadow: var(--shadow-1);
+    }
+
+    .about-video-wrapper iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
 
 
     /* Certifications */
     .certifications {
       margin-top: 35px;
-    }
-
-    .certifications-title {
-      margin-bottom: 20px;
     }
 
     .certification-list {
@@ -169,7 +241,7 @@
       <div class="sidebar-info">
 
         <figure class="avatar-box" >
-          <img src="./assets/images/Profile Pic.jfif" alt="Alireza Hadipour" width="80" style="border-radius: 20px;">
+          <img src="./assets/images/1738827571179.JPG" alt="Alireza Hadipour" width="80" style="border-radius: 20px;">
         </figure>
 
         <div class="info-content">
@@ -233,8 +305,8 @@
             </a>
           </li>
           <li class="social-item">
-            <a href="YOUR_CV_LINK_HERE" class="social-link" target="_blank" aria-label="CV">
-              <ion-icon name="document-text-outline"></ion-icon>
+            <a href="https://www.canva.com/design/DAHPz5TfUGk/m_kEVQVY3doFarji5I-aog/edit" class="social-link" target="_blank" aria-label="CV">
+              <span class="cv-icon-text">CV</span>
             </a>
           </li>
 
@@ -351,7 +423,7 @@
                 <div class="testimonials-text" data-testimonials-text>
                   <p>
                     I have been pursuing an M.Sc. in Data Science at the University of Isfahan since 
-                    September 2024, with a current GPA of 17.25/20. My master's thesis focuses on 
+                    September 2024, with a current GPA of 17.25/20 (86.25/100). My master's thesis focuses on 
                     developing a self-repairing pipeline for Graph Neural Networks (GNNs).
                     <br>
                     Throughout my master's studies, I have developed experience in research proposal 
@@ -376,7 +448,7 @@
                 <div class="testimonials-text" data-testimonials-text>
                   <p>
                     I earned my B.Sc. in Computer Engineering from the University of Guilan, 
-                    graduating with a GPA of 17.13/20. Throughout my undergraduate studies, 
+                    graduating with a GPA of 17.13/20 (85.65/100). Throughout my undergraduate studies, 
                     I developed a broad foundation in areas such as artificial intelligence, 
                     software development, algorithms, and programming.
 
@@ -491,7 +563,15 @@
 
           <h3 class="h3 clients-title">Summary</h3>
 
-          
+          <div class="about-video-wrapper">
+            <iframe
+              src="https://www.youtube.com/embed/VIDEO_ID"
+              title="About Me"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
 
         </section>
 
@@ -616,7 +696,7 @@
               <span>2024 - Present</span>
 
               <p class="timeline-text">
-                GPA: 17.25/20 <br>
+                GPA: 17.25/20 (86.25/100) <br>
                 Thesis: An Approach for Detecting and Mitigating Poisoned Data in Graph Neural Networks Based on Unlearning 
               </p>
 
@@ -629,7 +709,7 @@
               <span>2019 - 2023</span>
 
               <p class="timeline-text">
-                GPA: 17.13
+                GPA: 17.13/20 (85.65/100)
               </p>
 
             </li>
@@ -711,7 +791,7 @@
 
                     <div style="color: aliceblue;">
                     <ul>
-                      <li><h3 style="color: #FCCF69;">HCI & UX</h3></li>
+                      <li><h3 style="color: #b96cf4;">HCI & UX</h3></li>
                       <li>Usability Test</li>
                       <li>Qualitative Analysis</li>
                       <li>Wireframing and Prototyping</li>
@@ -719,7 +799,7 @@
                     </ul>
                     <br>
                     <ul>
-                      <li><h3 style="color: #FCCF69;">Statistics & Data Science</h3></li>
+                      <li><h3 style="color: #b96cf4;">Statistics & Data Science</h3></li>
                       <li>Statistical Tests (ANOVA, COOPER, T-Test, ...)</li>
                       <li>Data Cleaning</li>
                       <li>Database (Query Writing, Database Schema Design)</li>
@@ -729,7 +809,7 @@
                     </ul>
                     <br>
                     <ul>
-                      <li><h3 style="color: #FCCF69;">Research & Teaching</h3></li>
+                      <li><h3 style="color: #b96cf4;">Research & Teaching</h3></li>
                       <li>Literature Review</li>
                       <li>Survey/Questionnaire Design</li>
                       <li>Latex</li>
@@ -737,7 +817,7 @@
                     </ul>
                     <br>
                     <ul>
-                      <li><h3 style="color: #FCCF69;">Programming Languages & Tools</h3></li>
+                      <li><h3 style="color: #b96cf4;">Programming Languages & Tools</h3></li>
                       <li>Python (Numpy, Pandas, Matplot, Scipy)</li>
                       <li>SQL</li>
                       <li>Javascript (Vuejs)</li>
@@ -814,45 +894,51 @@
 
         <section class="certifications">
 
-          <h3 class="h3 certifications-title">Certifications</h3>
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="ribbon-outline" aria-label="Certifications icon"></ion-icon>
+            </div>
+
+            <h3 class="h3 certifications-title">Certifications</h3>
+          </div>
 
           <ul class="certification-list">
 
             <li class="certification-item">
-              <a href="YOUR_CERTIFICATE_LINK_1" target="_blank">
+              <a href="https://www.coursera.org/account/accomplishments/specialization/PE73L38JXKFV?utm_product=s12n" target="_blank">
                 <figure class="certification-img">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-                  <img src="./assets/images/certificate-1.jpg" alt="Certificate 1" loading="lazy">
+                  <img src="./assets/images/MLl.png" alt="Certificate 1" loading="lazy">
                 </figure>
-                <h4 class="certification-title">Certificate Title 1</h4>
+                <h4 class="certification-title">Machine Learning Specialization</h4>
                 <p class="certification-link">View certificate</p>
               </a>
             </li>
 
             <li class="certification-item">
-              <a href="YOUR_CERTIFICATE_LINK_2" target="_blank">
+              <a href="https://www.linkedin.com/in/alirezaa-hadipour/overlay/Certifications/1464414994/treasury/?profileId=ACoAAF9NeyoB-MooD6rjeSipTN7p_rTET4gkEEg" target="_blank">
                 <figure class="certification-img">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-                  <img src="./assets/images/certificate-2.jpg" alt="Certificate 2" loading="lazy">
+                  <img src="./assets/images/GA4.png" alt="Certificate 2" loading="lazy">
                 </figure>
-                <h4 class="certification-title">Certificate Title 2</h4>
+                <h4 class="certification-title">Google Analytics 4</h4>
                 <p class="certification-link">View certificate</p>
               </a>
             </li>
 
             <li class="certification-item">
-              <a href="YOUR_CERTIFICATE_LINK_3" target="_blank">
+              <a href="https://www.coursera.org/learn/introtoux-principles-and-processes" target="_blank">
                 <figure class="certification-img">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-                  <img src="./assets/images/certificate-3.jpg" alt="Certificate 3" loading="lazy">
+                  <img src="./assets/images/UX.jpeg" alt="Certificate 3" loading="lazy">
                 </figure>
-                <h4 class="certification-title">Certificate Title 3</h4>
+                <h4 class="certification-title">Introduction to User Experience Principles and Processes</h4>
                 <p class="certification-link">View certificate</p>
               </a>
             </li>
