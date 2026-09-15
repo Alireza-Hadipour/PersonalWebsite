@@ -10,7 +10,7 @@
   <!--
     - favicon
   -->
-  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="./assets/images/m.jpeg" type="image/x-icon">
 
   <!--
     - custom css link
@@ -23,8 +23,8 @@
        already uses var(--orange-yellow-crayola) / var(--vegas-gold) (nav, headings,
        gradients, hovers, etc.) updates automatically. */
     :root {
-      --orange-yellow-crayola: #b96cf4 !important;
-      --vegas-gold: #9a4fe0 !important;
+      --orange-yellow-crayola: #c876f4 !important;
+      --vegas-gold: #a85be6 !important;
     }
 
     /* Catch the small decorative line under each section heading (About/Resume/Projects),
@@ -33,8 +33,8 @@
     .article-title::after,
     article > header::before,
     article > header::after {
-      background: #b96cf4 !important;
-      border-color: #b96cf4 !important;
+      background: #c876f4 !important;
+      border-color: #c876f4 !important;
     }
 
     /* Keep More About Me titles aligned with the card content after removing avatars. */
@@ -59,7 +59,7 @@
     /* Use the same visual footprint as the previous SVG service icons. */
     .service-icon-box ion-icon {
       font-size: 40px;
-      color: #b96cf4;
+      color: #c876f4;
     }
 
     .skill .title-wrapper {
@@ -81,7 +81,7 @@
 
     .skill .title-wrapper .icon-box ion-icon {
       font-size: 24px;
-      color: #b96cf4;
+      color: #c876f4;
     }
 
     /* CV "icon" fallback (letters instead of a document icon) */
@@ -214,6 +214,79 @@
       margin: 20px 0;
       text-align: center;
     }
+  
+    /* ---- Requested website refinements ---- */
+
+    /* 1. Purple hover color */
+    .navbar-link:hover,
+    .filter-item button:hover,
+    .social-link:hover,
+    .contact-link:hover,
+    .project-title:hover,
+    .certification-title:hover,
+    .certification-link:hover {
+      color: #c876f4 !important;
+    }
+
+    /* 2. Certifications heading/icon: same row as Education/Experience */
+    .certifications > .title-wrapper {
+      display: flex !important;
+      align-items: center !important;
+      gap: 15px !important;
+      margin-bottom: 20px !important;
+    }
+
+    .certifications > .title-wrapper .icon-box {
+      flex-shrink: 0;
+    }
+
+    .certifications-title {
+      margin-bottom: 0 !important;
+    }
+
+    /* 3. Two resume sections side-by-side on larger screens.
+       Do not alter the portfolio/project layout. */
+    @media (min-width: 901px) {
+      .resume > .timeline {
+        display: inline-block;
+        vertical-align: top;
+        width: calc(50% - 12px);
+      }
+
+      .resume > .timeline:first-of-type {
+        margin-right: 20px;
+      }
+    }
+
+    /* 4. Project status */
+    .project-status {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 3px 9px;
+      border: 1px solid rgba(200, 118, 244, 0.35);
+      border-radius: 999px;
+      background: rgba(200, 118, 244, 0.08);
+      color: #c876f4;
+      font-size: 11px;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    /* 5. Subtle, clean accent treatment for expanded modules only */
+    .testimonials-modal {
+      border: 1px solid rgba(200, 118, 244, 0.28) !important;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.30) !important;
+    }
+
+    .testimonials-item .content-card {
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .testimonials-item .content-card:hover {
+      border-color: rgba(200, 118, 244, 0.35) !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22) !important;
+    }
+
   </style>
 
   <!--
@@ -709,7 +782,9 @@
               <span>2019 - 2023</span>
 
               <p class="timeline-text">
-                GPA: 17.13/20 (85.65/100)
+                GPA: 17.13/20 (85.65/100) <br>
+                Selected Courses: Natural Language Processing (4/4), Database Design (4/4), Software Engineering (4/4)
+                Artificial Intelligence (4/4), Algorithms & Data Structures (3.5/4)
               </p>
 
             </li>
@@ -791,7 +866,7 @@
 
                     <div style="color: aliceblue;">
                     <ul>
-                      <li><h3 style="color: #b96cf4;">HCI & UX</h3></li>
+                      <li><h3 style="color: #c876f4;">HCI & UX</h3></li>
                       <li>Usability Test</li>
                       <li>Qualitative Analysis</li>
                       <li>Wireframing and Prototyping</li>
@@ -799,7 +874,7 @@
                     </ul>
                     <br>
                     <ul>
-                      <li><h3 style="color: #b96cf4;">Statistics & Data Science</h3></li>
+                      <li><h3 style="color: #c876f4;">Statistics & Data Science</h3></li>
                       <li>Statistical Tests (ANOVA, COOPER, T-Test, ...)</li>
                       <li>Data Cleaning</li>
                       <li>Database (Query Writing, Database Schema Design)</li>
@@ -809,7 +884,7 @@
                     </ul>
                     <br>
                     <ul>
-                      <li><h3 style="color: #b96cf4;">Research & Teaching</h3></li>
+                      <li><h3 style="color: #c876f4;">Research & Teaching</h3></li>
                       <li>Literature Review</li>
                       <li>Survey/Questionnaire Design</li>
                       <li>Latex</li>
@@ -817,7 +892,7 @@
                     </ul>
                     <br>
                     <ul>
-                      <li><h3 style="color: #b96cf4;">Programming Languages & Tools</h3></li>
+                      <li><h3 style="color: #c876f4;">Programming Languages & Tools</h3></li>
                       <li>Python (Numpy, Pandas, Matplot, Scipy)</li>
                       <li>SQL</li>
                       <li>Javascript (Vuejs)</li>
@@ -1034,12 +1109,14 @@
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/project-1.jpg" alt="Association Rules" loading="lazy">
+                  <img src="./assets/images/Association.png" alt="Association Rules" loading="lazy">
                 </figure>
 
                 <h3 class="project-title">Association Rules</h3>
 
-                <p class="project-category">Data Science</p>
+                <p class="project-category">Developed a data-mining project to discover frequent item combinations and association rules from grocery transaction data. Implemented frequent-pattern mining to identify relationships between products and evaluated discovered rules using metrics such as support and confidence, providing insights into customer purchasing patterns and potential cross-selling opportunities.</p>
+
+                <span class="project-status">Completed</span>
 
               </a>
             </li>
@@ -1052,12 +1129,15 @@
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/project-2.png" alt="DataScience" loading="lazy">
+                  <img src="./assets/images/mobileappanalysis.jpg" alt="DataScience" loading="lazy">
                 </figure>
 
                 <h3 class="project-title">Google play apps analysis</h3>
 
-                <p class="project-category">Data Science</p>
+                <p class="project-category">Developed a web-based analytics application for exploring Google Play Store data. Used SQL and data analysis techniques to investigate app categories, ratings, pricing, and other app characteristics, and presented insights through interactive visualizations.
+</p>
+
+                <span class="project-status">Completed</span>
 
               </a>
             </li>
@@ -1073,9 +1153,11 @@
                   <img src="./assets/images/project-3.jpg" alt="Recommendation Systems" loading="lazy">
                 </figure>
 
-                <h3 class="project-title">Recommendation Systems</h3>
+                <h3 class="project-title">Context-Aware Recommendation Systems</h3>
 
-                <p class="project-category">Data Science</p>
+                <p class="project-category">Implemented and compared prefiltering and Markov-model approaches for a human-centered recommendation system. Processed user interaction data, constructed transition probability models to predict subsequent actions, and evaluated recommendation performance using Python, Scikit-learn, and NetworkX.</p>
+
+                <span class="project-status">Completed</span>
 
               </a>
             </li>
@@ -1088,12 +1170,15 @@
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/project-4.png" alt="Deep Walk" loading="lazy">
+                  <img src="./assets/images/DeepWalk.png" alt="Deep Walk" loading="lazy">
                 </figure>
 
                 <h3 class="project-title">Deep Walk</h3>
 
-                <p class="project-category">Data Science</p>
+                <p class="project-category">Implemented the DeepWalk graph embedding algorithm on a Wikipedia hyperlink network related to the University of Isfahan. Generated random walks and learned low-dimensional node representations to capture structural relationships within the network.
+</p>
+
+                <span class="project-status">Completed</span>
 
               </a>
             </li>
@@ -1113,6 +1198,8 @@
 
                 <p class="project-category">Data Science</p>
 
+                <span class="project-status">Completed</span>
+
               </a>
             </li>
 
@@ -1130,6 +1217,8 @@
                 <h3 class="project-title">MetaSpark</h3>
 
                 <p class="project-category">Data Science</p>
+
+                <span class="project-status">Completed</span>
 
               </a>
             </li>
@@ -1149,6 +1238,8 @@
 
                 <p class="project-category">Web development</p>
 
+                <span class="project-status">Completed</span>
+
               </a>
             </li>
 
@@ -1167,6 +1258,8 @@
 
                 <p class="project-category">Applications</p>
 
+                <span class="project-status">Completed</span>
+
               </a>
             </li>
 
@@ -1184,6 +1277,8 @@
                 <h3 class="project-title">Arrival</h3>
 
                 <p class="project-category">Web development</p>
+
+                <span class="project-status">Completed</span>
 
               </a>
             </li> -->
